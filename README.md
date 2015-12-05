@@ -1,1 +1,1 @@
-# explorare.github.io
+This is Explorare's Blog.
