@@ -1,1 +1,0 @@
-This is Explorare's Blog.
