@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="HentaiCollection" type="application/atom+xml" />
+
 
 
 
@@ -124,7 +126,7 @@ Execute your wordpress docker image again.
     motion: true,
     duoshuo: {
       userId: 0,
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -132,7 +134,7 @@ Execute your wordpress docker image again.
   <title> Fix systax error in Wordpress inside docker | HentaiCollection </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn,en-us,default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
 
@@ -187,7 +189,17 @@ Execute your wordpress docker image again.
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首頁
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
           </a>
         </li>
       
@@ -197,17 +209,7 @@ Execute your wordpress docker image again.
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            歸檔
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            標籤
+            Archives
           </a>
         </li>
       
@@ -260,7 +262,7 @@ Execute your wordpress docker image again.
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">發表於</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-04-30T11:55:11+09:00" content="2016-04-30">
               2016-04-30
             </time>
@@ -269,6 +271,13 @@ Execute your wordpress docker image again.
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/30/Wordpress_Syntax_Error/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/04/30/Wordpress_Syntax_Error/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -371,6 +380,13 @@ Execute your wordpress docker image again.
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -394,10 +410,10 @@ Execute your wordpress docker image again.
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Overview
           </li>
         </ul>
       
@@ -405,7 +421,7 @@ Execute your wordpress docker image again.
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/avatar.jpg"
                alt="Explorare" />
           <p class="site-author-name" itemprop="name">Explorare</p>
           <p class="site-description motion-element" itemprop="description"></p>
@@ -414,7 +430,7 @@ Execute your wordpress docker image again.
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -425,12 +441,54 @@ Execute your wordpress docker image again.
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Explorare" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Explorare_" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:explorare@hencolle.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
           
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         
@@ -445,7 +503,7 @@ Execute your wordpress docker image again.
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
             
           </div>
         </section>
@@ -472,11 +530,11 @@ Execute your wordpress docker image again.
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
@@ -561,6 +619,27 @@ Execute your wordpress docker image again.
 
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'hencolle';
+      var disqus_identifier = '2016/04/30/Wordpress_Syntax_Error/';
+      var disqus_title = 'Fix systax error in Wordpress inside docker';
+      var disqus_url = 'https://hencolle.com/2016/04/30/Wordpress_Syntax_Error/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
   
 
 
