@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hencolle.com/"/>
-  <updated>2016-10-16T13:29:46.395Z</updated>
+  <updated>2016-10-16T16:51:46.440Z</updated>
   <id>https://hencolle.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://hencolle.com/2016/10/16/baidu_exporter/"/>
     <id>https://hencolle.com/2016/10/16/baidu_exporter/</id>
     <published>2016-10-15T16:00:00.000Z</published>
-    <updated>2016-10-16T13:29:46.395Z</updated>
+    <updated>2016-10-16T16:51:46.440Z</updated>
     
     <content type="html"><![CDATA[<p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
 <p>Chrome removed Baidu Exporter from Chrome App Store <s>due to some unknown Python transaction</s> recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if you load unpacked extensions.</p>
@@ -33,7 +33,7 @@ Launch Chrome, open <code>chrome://extensions</code>, <code>Pack extension</code
 <a id="more"></a>
 <p><strong>0x03</strong><br>
 Import the Chrome policy templates using Group Policy Editor:<br>
-a. Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.
+a. Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.Extract the <code>./Windows/adm/en-US/chrome.adm</code>.<br>
 b. Navigate to Start &gt; Run: <code>gpedit.msc</code>.<br>
 c. Navigate to <code>Local Computer Policy</code> &gt; <code>omputer Configuration</code> &gt; <code>Administrative Templates</code>.<br>
 d. Right-click <code>Administrative Templates</code>, and select <code>Add/Remove Templates</code>.<br>
