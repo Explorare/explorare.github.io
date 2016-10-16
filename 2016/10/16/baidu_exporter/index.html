@@ -84,34 +84,24 @@
 
 
 
-<meta name="description" content="Shutdown your droplet and make a snapshot. Always remember to make a snapshot before you make any big changes.
-
-
-Execute your wordpress docker image again.
-
-
-1234$ docker ps    CONTAINER ID        IMA">
+<meta name="description" content="It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
+Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to security reas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fix systax error in Wordpress inside docker">
-<meta property="og:url" content="https://hencolle.com/2016/04/30/Wordpress_Syntax_Error/index.html">
+<meta property="og:title" content="Guide on Packaging and Import Baidu Exporter to Chrome">
+<meta property="og:url" content="https://hencolle.com/2016/10/16/baidu_exporter/index.html">
 <meta property="og:site_name" content="HentaiCollection">
-<meta property="og:description" content="Shutdown your droplet and make a snapshot. Always remember to make a snapshot before you make any big changes.
-
-
-Execute your wordpress docker image again.
-
-
-1234$ docker ps    CONTAINER ID        IMA">
-<meta property="og:updated_time" content="2016-05-23T01:21:15.379Z">
+<meta property="og:description" content="It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
+Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to security reas">
+<meta property="og:image" content="https://i.imgur.com/k68t5HR.png">
+<meta property="og:image" content="https://i.imgur.com/Ifa0HwV.png">
+<meta property="og:image" content="https://i.imgur.com/99J4LAX.png">
+<meta property="og:image" content="https://i.imgur.com/mQCenSj.png">
+<meta property="og:image" content="https://i.imgur.com/jZUn0Xb.png">
+<meta property="og:updated_time" content="2016-10-16T13:29:46.395Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fix systax error in Wordpress inside docker">
-<meta name="twitter:description" content="Shutdown your droplet and make a snapshot. Always remember to make a snapshot before you make any big changes.
-
-
-Execute your wordpress docker image again.
-
-
-1234$ docker ps    CONTAINER ID        IMA">
+<meta name="twitter:title" content="Guide on Packaging and Import Baidu Exporter to Chrome">
+<meta name="twitter:description" content="It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
+Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to security reas">
 
 
 
@@ -129,7 +119,7 @@ Execute your wordpress docker image again.
   };
 </script>
 
-  <title> Fix systax error in Wordpress inside docker | HentaiCollection </title>
+  <title> Guide on Packaging and Import Baidu Exporter to Chrome | HentaiCollection </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn,en-us,default">
@@ -249,7 +239,7 @@ Execute your wordpress docker image again.
             
             
               
-                Fix systax error in Wordpress inside docker
+                Guide on Packaging and Import Baidu Exporter to Chrome
               
             
           </h1>
@@ -261,8 +251,8 @@ Execute your wordpress docker image again.
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-04-30T11:55:11+09:00" content="2016-04-30">
-              2016-04-30
+            <time itemprop="dateCreated" datetime="2016-10-16T01:00:00+09:00" content="2016-10-16">
+              2016-10-16
             </time>
           </span>
 
@@ -289,28 +279,41 @@ Execute your wordpress docker image again.
       
 
       
-        <ol>
-<li>
-<p>Shutdown your droplet and make a snapshot. Always remember to make a snapshot before you make any big changes.</p>
-</li>
-<li>
-<p>Execute your wordpress docker image again.</p>
-</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps</span><br><span class="line">    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                      NAMES</span><br><span class="line">    <span class="number">2</span>a646cb51226        wordpress           <span class="string">"/entrypoint.sh apach"</span>   <span class="number">4</span> months ago        Up <span class="number">2</span> minutes        <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">80</span>-&gt;<span class="number">80</span>/tcp, <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">8080</span>-&gt;<span class="number">80</span>/tcp   wordpress_wordpress_1</span><br><span class="line">    <span class="number">6057</span>a85dc452        mariadb             <span class="string">"/docker-entrypoint.s"</span>   <span class="number">4</span> months ago        Up <span class="number">2</span> minutes        <span class="number">3306</span>/tcp                                   wordpress_wordpress_db_1</span><br></pre></td></tr></table></figure>
+        <p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
+<p>Chrome removed Baidu Exporter from Chrome App Store <s>due to some unknown Python transaction</s> recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if you load unpacked extensions.</p>
+<p>So in this thread I’ll give a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by <a href="https://github.com/ungrown" target="_blank" rel="external">ungrown@Github</a>, thanks.</p>
+<p><strong>0x01</strong><br>
+Clone or download the latest source of Baidu Exporter from <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">here</a>.</p>
+<p><strong>0x02</strong><br>
+Launch Chrome, open <code>chrome://extensions</code>, <code>Pack extension</code>. Browse the source you just downloaded, <code>Pack Extension</code>. (You don’t need to browse private key file if you do this the first time, it will generate a new one automaticly.) The newly built extension will be found in the source folder with a <code>*.pem</code> file, Keep Them All, you will need that <code>.pem</code> file if you want to update the extension in the furture. Drag the <code>*.crx</code> file to the <code>chrome://extension</code> page to load it. And you will find the extension been disabled if you relaunch the Chrome. By the way, copy the extension id to somewhere like a notepad. We will need it next.<br>
+<img src="https://i.imgur.com/k68t5HR.png" alt="Extension ID"></p>
 <a id="more"></a>
-<p>Remember the container ID to wordpress and execute</p>
-<pre><code>$ docker exec -it &lt;container ID&gt; vi &lt;full path to the file with syntax error&gt;
-</code></pre>
-<p>If you see this error:</p>
-<pre><code>    exec: &quot;vi&quot;: executable file not found in $PATH
-</code></pre>
-<p>execute</p>
-<pre><code>    $ docker exec -it &lt;container ID&gt; bash
-    # apt-get update
-    # apt-get install vim
-</code></pre>
-<p>After it finished without error, u can just edit the fill inside the container whatever you like.</p>
+<p><strong>0x03</strong><br>
+Import the Chrome policy templates using Group Policy Editor:<br>
+a. Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.
+b. Navigate to Start &gt; Run: <code>gpedit.msc</code>.<br>
+c. Navigate to <code>Local Computer Policy</code> &gt; <code>omputer Configuration</code> &gt; <code>Administrative Templates</code>.<br>
+d. Right-click <code>Administrative Templates</code>, and select <code>Add/Remove Templates</code>.<br>
+e. Add the <code>chrome.adm</code> template via the dialog.<br>
+f. Once complete, a <code>Google / Google Chrome</code> folder will appear under <code>Administrative Templates</code> if it’s not already there. If you added the ADM template on Windows 7 or 8.1, it will appear under <code>Classic Administrative Templates / Google / Google Chrome</code>.</p>
+<p><strong>0x04</strong><br>
+Add the extension by the following steps:<br>
+a. Navigate to <code>Classic Administrative Templates / Google / Google Chrome / Extensions</code> secition.<br>
+<img src="https://i.imgur.com/Ifa0HwV.png" alt="Classic Administrative Templates / Google / Google Chrome / Extensions"><br>
+b. Double click to open <code>Configure extension installation whitelist</code> on the right side.<br>
+<img src="https://i.imgur.com/99J4LAX.png" alt="Configure extension installation whitelist"><br>
+c. Enable the policy and add the extenison id to the whitelist.<br>
+<img src="https://i.imgur.com/mQCenSj.png" alt="First"><br>
+<img src="https://i.imgur.com/jZUn0Xb.png" alt="Second"></p>
+<p><strong>0x05</strong><br>
+Relaunch Chrome you will find the Baidu Exporter is enabled by default now.</p>
+<p>GL;HF</p>
+<hr>
+<p>References:<br>
+<a href="https://github.com/acgotaku/BaiduExporter/issues/277#issuecomment-253988038" target="_blank" rel="external">0.8.5在chrome商店被删 · Issue #277 · acgotaku/BaiduExporter</a><br>
+<a href="https://developer.chrome.com/webstore/get_started_simple#step5" target="_blank" rel="external">Tutorial: Getting Started - Google Chrome</a><br>
+<a href="https://developer.chrome.com/extensions/packaging" target="_blank" rel="external">Packaging - Google Chrome</a><br>
+<a href="https://support.google.com/chrome/a/answer/187202?hl=en" target="_blank" rel="external">Set Chrome policies for devices - Chrome for business and education Help</a></p>
 
       
     </div>
@@ -335,17 +338,13 @@ Execute your wordpress docker image again.
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/21/Bad_Ownership_or_Modes_for_Public-key/" rel="next" title="Fix Bad Ownership or Modes for SSH Public-keys">
-                <i class="fa fa-chevron-left"></i> Fix Bad Ownership or Modes for SSH Public-keys
+              <a href="/2016/04/30/Wordpress_Syntax_Error/" rel="next" title="Fix systax error in Wordpress inside docker">
+                <i class="fa fa-chevron-left"></i> Fix systax error in Wordpress inside docker
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/16/baidu_exporter/" rel="prev" title="Guide on Packaging and Import Baidu Exporter to Chrome">
-                Guide on Packaging and Import Baidu Exporter to Chrome <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

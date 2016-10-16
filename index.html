@@ -233,6 +233,109 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/16/baidu_exporter/" itemprop="url">
+                  Guide on Packaging and Import Baidu Exporter to Chrome
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-10-16T00:00:00+08:00" content="2016-10-16">
+              2016-10-16
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
+<p>Chrome removed Baidu Exporter from Chrome App Store <s>due to some unknown Python transaction</s> recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if you load unpacked extensions.</p>
+<p>So in this thread I’ll give a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by <a href="https://github.com/ungrown">ungrown@Github</a>, thanks.</p>
+<p><strong>0x01</strong><br>
+Clone or download the latest source of Baidu Exporter from <a href="https://github.com/acgotaku/BaiduExporter">here</a>.</p>
+<p><strong>0x02</strong><br>
+Launch Chrome, open <code>chrome://extensions</code>, <code>Pack extension</code>. Browse the source you just downloaded, <code>Pack Extension</code>. (You don’t need to browse private key file if you do this the first time, it will generate a new one automaticly.) The newly built extension will be found in the source folder with a <code>*.pem</code> file, Keep Them All, you will need that <code>.pem</code> file if you want to update the extension in the furture. Drag the <code>*.crx</code> file to the <code>chrome://extension</code> page to load it. And you will find the extension been disabled if you relaunch the Chrome. By the way, copy the extension id to somewhere like a notepad. We will need it next.<br>
+<img src="https://i.imgur.com/k68t5HR.png" alt="Extension ID"></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/16/baidu_exporter/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/30/Wordpress_Syntax_Error/" itemprop="url">
                   Fix systax error in Wordpress inside docker
                 </a>
@@ -498,8 +601,7 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
 
       
         
-          <h2 id="amazon-cloud-dirve-使用评测"><a class="header-anchor" href="#amazon-cloud-dirve-使用评测"># </a>Amazon Cloud Dirve 使用评测</h2>
-<h2 id="目录"><a class="header-anchor" href="#目录"># </a>目录</h2>
+          <h2 id="目录"><a class="header-anchor" href="#目录"># </a>目录</h2>
 <ul>
 <li><a href="#C1">介绍</a></li>
 <li><a href="#C2">体验</a></li>
@@ -513,7 +615,7 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
 <p><a id="C1"></a></p>
 <h2 id="介绍"><a class="header-anchor" href="#介绍"># </a>介绍</h2>
 <p>笔者在今天上午<sup><a href="#R1">[1]</a></sup>无意间发现渣玛逊黑五特惠<sup><a href="#R2">[2]</a></sup>中，ACD(Amazon Cloud Drive) 的 special offer 特别的诱人，unlimited plan 包年 5 USD<sup><a href="#R3">[3]</a></sup>.</p>
-<p>首先是购买方面，只能使用双币卡如 VISA 或者 MasterCard，或者使用 GiftCard，笔者因为双币卡还没申请下来，便从万能的某宝以 1 USD 兑换 6.33 CNY 的汇率买了 5 USD 的礼品卡支付成功。从下单到收到 ACD 账户开通邮件耗时一小时左右。</p>
+<p>首先是购买方面，只能使用双币卡如 VISA 或者 MasterCard，从下单到收到 ACD 账户开通邮件耗时一小时左右。</p>
 <p>购买之前笔者主要使用百度云来保存分享专辑<s>和本子</s>这类体积小的数据，尝试同步系统备份上去最后因为文件大小限制而作罢。<sup><a href="#R5">[4]</a></sup></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/12/04/ACD_Hands_On/#more" rel="contents">
@@ -587,7 +689,7 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
