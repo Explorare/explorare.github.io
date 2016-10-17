@@ -86,24 +86,30 @@
 
 
 
-<meta name="description" content="It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
-Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to security reas">
+<meta name="description" content="TL;DR
+It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
+Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to securit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Guide on Packaging and Import Baidu Exporter to Chrome">
 <meta property="og:url" content="https://hencolle.com/2016/10/16/baidu_exporter/index.html">
 <meta property="og:site_name" content="HentaiCollection">
-<meta property="og:description" content="It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
-Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to security reas">
+<meta property="og:description" content="TL;DR
+It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
+Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to securit">
+<meta property="og:image" content="https://i.imgur.com/XzsfOZz.png">
+<meta property="og:image" content="https://i.imgur.com/Ses0MHk.png">
+<meta property="og:image" content="https://i.imgur.com/1bAspBj.png">
 <meta property="og:image" content="https://i.imgur.com/k68t5HR.png">
 <meta property="og:image" content="https://i.imgur.com/Ifa0HwV.png">
 <meta property="og:image" content="https://i.imgur.com/99J4LAX.png">
 <meta property="og:image" content="https://i.imgur.com/mQCenSj.png">
 <meta property="og:image" content="https://i.imgur.com/jZUn0Xb.png">
-<meta property="og:updated_time" content="2016-10-16T16:51:46.440Z">
+<meta property="og:updated_time" content="2016-10-17T05:59:46.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Guide on Packaging and Import Baidu Exporter to Chrome">
-<meta name="twitter:description" content="It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
-Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to security reas">
+<meta name="twitter:description" content="TL;DR
+It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
+Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to securit">
 
 
 
@@ -288,41 +294,53 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
       
 
       
-        <p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
-<p>Chrome removed Baidu Exporter from Chrome App Store <s>due to some unknown Python transaction</s> recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if you load unpacked extensions.</p>
-<p>So in this thread I’ll give a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by <a href="https://github.com/ungrown" target="_blank" rel="external">ungrown@Github</a>, thanks.</p>
-<p><strong>0x01</strong><br>
-Clone or download the latest source of Baidu Exporter from <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">here</a>.</p>
-<p><strong>0x02</strong><br>
-Launch Chrome, open <code>chrome://extensions</code>, <code>Pack extension</code>. Browse the source you just downloaded, <code>Pack Extension</code>. (You don’t need to browse private key file if you do this the first time, it will generate a new one automaticly.) The newly built extension will be found in the source folder with a <code>*.pem</code> file, Keep Them All, you will need that <code>.pem</code> file if you want to update the extension in the furture. Drag the <code>*.crx</code> file to the <code>chrome://extension</code> page to load it. And you will find the extension been disabled if you relaunch the Chrome. By the way, copy the extension id to somewhere like a notepad. We will need it next.<br>
-<img src="https://i.imgur.com/k68t5HR.png" alt="Extension ID"></p>
+        <h1 id="tl-dr">TL;DR</h1>
+<p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
+<p>Chrome removed Baidu Exporter from Chrome App Store <s>due to some unknown Python transaction</s> recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if unpacked extensions are loaded.</p>
+<p>So in this thread I’ll provide a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by <a href="https://github.com/ungrown" target="_blank" rel="external">ungrown@Github</a>, thanks.</p>
 <a id="more"></a>
-<p><strong>0x03</strong><br>
-Import the Chrome policy templates using Group Policy Editor:<br>
-a. Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.Extract the <code>./Windows/adm/en-US/chrome.adm</code>.<br>
-b. Navigate to Start &gt; Run: <code>gpedit.msc</code>.<br>
-c. Navigate to <code>Local Computer Policy</code> &gt; <code>omputer Configuration</code> &gt; <code>Administrative Templates</code>.<br>
-d. Right-click <code>Administrative Templates</code>, and select <code>Add/Remove Templates</code>.<br>
-e. Add the <code>chrome.adm</code> template via the dialog.<br>
-f. Once complete, a <code>Google / Google Chrome</code> folder will appear under <code>Administrative Templates</code> if it’s not already there. If you added the ADM template on Windows 7 or 8.1, it will appear under <code>Classic Administrative Templates / Google / Google Chrome</code>.</p>
-<p><strong>0x04</strong><br>
-Add the extension by the following steps:<br>
-a. Navigate to <code>Classic Administrative Templates / Google / Google Chrome / Extensions</code> secition.<br>
-<img src="https://i.imgur.com/Ifa0HwV.png" alt="Classic Administrative Templates / Google / Google Chrome / Extensions"><br>
-b. Double click to open <code>Configure extension installation whitelist</code> on the right side.<br>
-<img src="https://i.imgur.com/99J4LAX.png" alt="Configure extension installation whitelist"><br>
-c. Enable the policy and add the extenison id to the whitelist.<br>
-<img src="https://i.imgur.com/mQCenSj.png" alt="First"><br>
-<img src="https://i.imgur.com/jZUn0Xb.png" alt="Second"></p>
-<p><strong>0x05</strong><br>
-Relaunch Chrome you will find the Baidu Exporter is enabled by default now.</p>
-<p>GL;HF</p>
+<h1 id="download-the-extension">Download the extension</h1>
+<p>Clone or download the latest copy of Baidu Exporter from <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">here</a>.</p>
+<h1 id="package-the-extension">Package the extension</h1>
+<ol>
+<li>Launch Chrome, open <code>chrome://extensions</code>, <code>Pack extension</code>.
+<img src="https://i.imgur.com/XzsfOZz.png" alt=""></li>
+<li>Browse the code you just downloaded, <code>Pack Extension</code>.
+<img src="https://i.imgur.com/Ses0MHk.png" alt=""></li>
+<li>The newly built extension will be found in the source folder with a <code>*.pem</code> file, Keep Them All, you will need that <code>.pem</code> file if you want to update the extension in the furture.
+<img src="https://i.imgur.com/1bAspBj.png" alt=""></li>
+<li>Drag the <code>*.crx</code> file to the <code>chrome://extension</code> page to load it. But \the extension will be disabled if Chrome relaunched. Also, copy the extension id to somewhere like a notepad. You will need it later.
+<img src="https://i.imgur.com/k68t5HR.png" alt="Extension ID"></li>
+</ol>
+<h1 id="apply-chrome-policy-using-group-policy-editor">Apply Chrome policy using Group Policy Editor</h1>
+<ol>
+<li>Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.Extract the <code>./Windows/adm/en-US/chrome.adm</code>.</li>
+<li>Navigate to Start &gt; Run: <code>gpedit.msc</code>.</li>
+<li>Navigate to <code>Local Computer Policy</code> &gt; <code>omputer Configuration</code> &gt; <code>Administrative Templates</code>.</li>
+<li>Right-click <code>Administrative Templates</code>, and select <code>Add/Remove Templates</code>.</li>
+<li>Add the <code>chrome.adm</code> template via the dialog.</li>
+<li>Once complete, a <code>Google / Google Chrome</code> folder will appear under <code>Administrative Templates</code> if it’s not already there. If you added the ADM template on Windows 7 or 8.1, it will appear under <code>Classic Administrative Templates / Google / Google Chrome</code>.</li>
+</ol>
+<h1 id="add-it-to-whitelist">Add it to whitelist</h1>
+<p>Add the extension by the following steps:</p>
+<ol>
+<li>Navigate to <code>Classic Administrative Templates / Google / Google Chrome / Extensions</code> secition.
+<img src="https://i.imgur.com/Ifa0HwV.png" alt="Classic Administrative Templates / Google / Google Chrome / Extensions"></li>
+<li>Double click to open <code>Configure extension installation whitelist</code> on the right side.
+<img src="https://i.imgur.com/99J4LAX.png" alt="Configure extension installation whitelist"></li>
+<li>Enable the policy and add the extenison id to the whitelist.
+<img src="https://i.imgur.com/mQCenSj.png" alt="First">
+<img src="https://i.imgur.com/jZUn0Xb.png" alt="Second"></li>
+</ol>
+<p>The extension will be enabled by default after Chrome relaunched.</p>
 <hr>
-<p>References:<br>
-<a href="https://github.com/acgotaku/BaiduExporter/issues/277#issuecomment-253988038" target="_blank" rel="external">0.8.5在chrome商店被删 · Issue #277 · acgotaku/BaiduExporter</a><br>
-<a href="https://developer.chrome.com/webstore/get_started_simple#step5" target="_blank" rel="external">Tutorial: Getting Started - Google Chrome</a><br>
-<a href="https://developer.chrome.com/extensions/packaging" target="_blank" rel="external">Packaging - Google Chrome</a><br>
-<a href="https://support.google.com/chrome/a/answer/187202?hl=en" target="_blank" rel="external">Set Chrome policies for devices - Chrome for business and education Help</a></p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://github.com/acgotaku/BaiduExporter/issues/277#issuecomment-253988038" target="_blank" rel="external">0.8.5在chrome商店被删 · Issue #277 · acgotaku/BaiduExporter</a></li>
+<li><a href="https://developer.chrome.com/webstore/get_started_simple#step5" target="_blank" rel="external">Tutorial: Getting Started - Google Chrome</a></li>
+<li><a href="https://developer.chrome.com/extensions/packaging" target="_blank" rel="external">Packaging - Google Chrome</a></li>
+<li><a href="https://support.google.com/chrome/a/answer/187202?hl=en" target="_blank" rel="external">Set Chrome policies for devices - Chrome for business and education Help</a></li>
+</ul>
 
       
     </div>
@@ -502,7 +520,7 @@ Relaunch Chrome you will find the Baidu Exporter is enabled by default now.</p>
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tl-dr"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#download-the-extension"><span class="nav-number">2.</span> <span class="nav-text">Download the extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#package-the-extension"><span class="nav-number">3.</span> <span class="nav-text">Package the extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#apply-chrome-policy-using-group-policy-editor"><span class="nav-number">4.</span> <span class="nav-text">Apply Chrome policy using Group Policy Editor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#add-it-to-whitelist"><span class="nav-number">5.</span> <span class="nav-text">Add it to whitelist</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">6.</span> <span class="nav-text">References</span></a></li></ol></div>
             
           </div>
         </section>

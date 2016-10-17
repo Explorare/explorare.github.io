@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hencolle.com/"/>
-  <updated>2016-10-16T16:51:46.440Z</updated>
+  <updated>2016-10-17T05:59:46.146Z</updated>
   <id>https://hencolle.com/</id>
   
   <author>
@@ -20,55 +20,63 @@
     <link href="https://hencolle.com/2016/10/16/baidu_exporter/"/>
     <id>https://hencolle.com/2016/10/16/baidu_exporter/</id>
     <published>2016-10-15T16:00:00.000Z</published>
-    <updated>2016-10-16T16:51:46.440Z</updated>
+    <updated>2016-10-17T05:59:46.146Z</updated>
     
-    <content type="html"><![CDATA[<p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
-<p>Chrome removed Baidu Exporter from Chrome App Store <s>due to some unknown Python transaction</s> recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if you load unpacked extensions.</p>
-<p>So in this thread I’ll give a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by <a href="https://github.com/ungrown" target="_blank" rel="external">ungrown@Github</a>, thanks.</p>
-<p><strong>0x01</strong><br>
-Clone or download the latest source of Baidu Exporter from <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">here</a>.</p>
-<p><strong>0x02</strong><br>
-Launch Chrome, open <code>chrome://extensions</code>, <code>Pack extension</code>. Browse the source you just downloaded, <code>Pack Extension</code>. (You don’t need to browse private key file if you do this the first time, it will generate a new one automaticly.) The newly built extension will be found in the source folder with a <code>*.pem</code> file, Keep Them All, you will need that <code>.pem</code> file if you want to update the extension in the furture. Drag the <code>*.crx</code> file to the <code>chrome://extension</code> page to load it. And you will find the extension been disabled if you relaunch the Chrome. By the way, copy the extension id to somewhere like a notepad. We will need it next.<br>
-<img src="https://i.imgur.com/k68t5HR.png" alt="Extension ID"></p>
+    <content type="html"><![CDATA[<h1 id="tl-dr">TL;DR</h1>
+<p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
+<p>Chrome removed Baidu Exporter from Chrome App Store <s>due to some unknown Python transaction</s> recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if unpacked extensions are loaded.</p>
+<p>So in this thread I’ll provide a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by <a href="https://github.com/ungrown" target="_blank" rel="external">ungrown@Github</a>, thanks.</p>
 <a id="more"></a>
-<p><strong>0x03</strong><br>
-Import the Chrome policy templates using Group Policy Editor:<br>
-a. Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.Extract the <code>./Windows/adm/en-US/chrome.adm</code>.<br>
-b. Navigate to Start &gt; Run: <code>gpedit.msc</code>.<br>
-c. Navigate to <code>Local Computer Policy</code> &gt; <code>omputer Configuration</code> &gt; <code>Administrative Templates</code>.<br>
-d. Right-click <code>Administrative Templates</code>, and select <code>Add/Remove Templates</code>.<br>
-e. Add the <code>chrome.adm</code> template via the dialog.<br>
-f. Once complete, a <code>Google / Google Chrome</code> folder will appear under <code>Administrative Templates</code> if it’s not already there. If you added the ADM template on Windows 7 or 8.1, it will appear under <code>Classic Administrative Templates / Google / Google Chrome</code>.</p>
-<p><strong>0x04</strong><br>
-Add the extension by the following steps:<br>
-a. Navigate to <code>Classic Administrative Templates / Google / Google Chrome / Extensions</code> secition.<br>
-<img src="https://i.imgur.com/Ifa0HwV.png" alt="Classic Administrative Templates / Google / Google Chrome / Extensions"><br>
-b. Double click to open <code>Configure extension installation whitelist</code> on the right side.<br>
-<img src="https://i.imgur.com/99J4LAX.png" alt="Configure extension installation whitelist"><br>
-c. Enable the policy and add the extenison id to the whitelist.<br>
-<img src="https://i.imgur.com/mQCenSj.png" alt="First"><br>
-<img src="https://i.imgur.com/jZUn0Xb.png" alt="Second"></p>
-<p><strong>0x05</strong><br>
-Relaunch Chrome you will find the Baidu Exporter is enabled by default now.</p>
-<p>GL;HF</p>
+<h1 id="download-the-extension">Download the extension</h1>
+<p>Clone or download the latest copy of Baidu Exporter from <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">here</a>.</p>
+<h1 id="package-the-extension">Package the extension</h1>
+<ol>
+<li>Launch Chrome, open <code>chrome://extensions</code>, <code>Pack extension</code>.
+<img src="https://i.imgur.com/XzsfOZz.png" alt=""></li>
+<li>Browse the code you just downloaded, <code>Pack Extension</code>.
+<img src="https://i.imgur.com/Ses0MHk.png" alt=""></li>
+<li>The newly built extension will be found in the source folder with a <code>*.pem</code> file, Keep Them All, you will need that <code>.pem</code> file if you want to update the extension in the furture.
+<img src="https://i.imgur.com/1bAspBj.png" alt=""></li>
+<li>Drag the <code>*.crx</code> file to the <code>chrome://extension</code> page to load it. But \the extension will be disabled if Chrome relaunched. Also, copy the extension id to somewhere like a notepad. You will need it later.
+<img src="https://i.imgur.com/k68t5HR.png" alt="Extension ID"></li>
+</ol>
+<h1 id="apply-chrome-policy-using-group-policy-editor">Apply Chrome policy using Group Policy Editor</h1>
+<ol>
+<li>Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.Extract the <code>./Windows/adm/en-US/chrome.adm</code>.</li>
+<li>Navigate to Start &gt; Run: <code>gpedit.msc</code>.</li>
+<li>Navigate to <code>Local Computer Policy</code> &gt; <code>omputer Configuration</code> &gt; <code>Administrative Templates</code>.</li>
+<li>Right-click <code>Administrative Templates</code>, and select <code>Add/Remove Templates</code>.</li>
+<li>Add the <code>chrome.adm</code> template via the dialog.</li>
+<li>Once complete, a <code>Google / Google Chrome</code> folder will appear under <code>Administrative Templates</code> if it’s not already there. If you added the ADM template on Windows 7 or 8.1, it will appear under <code>Classic Administrative Templates / Google / Google Chrome</code>.</li>
+</ol>
+<h1 id="add-it-to-whitelist">Add it to whitelist</h1>
+<p>Add the extension by the following steps:</p>
+<ol>
+<li>Navigate to <code>Classic Administrative Templates / Google / Google Chrome / Extensions</code> secition.
+<img src="https://i.imgur.com/Ifa0HwV.png" alt="Classic Administrative Templates / Google / Google Chrome / Extensions"></li>
+<li>Double click to open <code>Configure extension installation whitelist</code> on the right side.
+<img src="https://i.imgur.com/99J4LAX.png" alt="Configure extension installation whitelist"></li>
+<li>Enable the policy and add the extenison id to the whitelist.
+<img src="https://i.imgur.com/mQCenSj.png" alt="First">
+<img src="https://i.imgur.com/jZUn0Xb.png" alt="Second"></li>
+</ol>
+<p>The extension will be enabled by default after Chrome relaunched.</p>
 <hr>
-<p>References:<br>
-<a href="https://github.com/acgotaku/BaiduExporter/issues/277#issuecomment-253988038" target="_blank" rel="external">0.8.5在chrome商店被删 · Issue #277 · acgotaku/BaiduExporter</a><br>
-<a href="https://developer.chrome.com/webstore/get_started_simple#step5" target="_blank" rel="external">Tutorial: Getting Started - Google Chrome</a><br>
-<a href="https://developer.chrome.com/extensions/packaging" target="_blank" rel="external">Packaging - Google Chrome</a><br>
-<a href="https://support.google.com/chrome/a/answer/187202?hl=en" target="_blank" rel="external">Set Chrome policies for devices - Chrome for business and education Help</a></p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://github.com/acgotaku/BaiduExporter/issues/277#issuecomment-253988038" target="_blank" rel="external">0.8.5在chrome商店被删 · Issue #277 · acgotaku/BaiduExporter</a></li>
+<li><a href="https://developer.chrome.com/webstore/get_started_simple#step5" target="_blank" rel="external">Tutorial: Getting Started - Google Chrome</a></li>
+<li><a href="https://developer.chrome.com/extensions/packaging" target="_blank" rel="external">Packaging - Google Chrome</a></li>
+<li><a href="https://support.google.com/chrome/a/answer/187202?hl=en" target="_blank" rel="external">Set Chrome policies for devices - Chrome for business and education Help</a></li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;It’s been a loooooong time since the last update. Just cause I’m too lazy. X P&lt;/p&gt;
-&lt;p&gt;Chrome removed Baidu Exporter from Chrome App Store &lt;s&gt;due to some unknown Python transaction&lt;/s&gt; recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if you load unpacked extensions.&lt;/p&gt;
-&lt;p&gt;So in this thread I’ll give a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by &lt;a href=&quot;https://github.com/ungrown&quot;&gt;ungrown@Github&lt;/a&gt;, thanks.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;0x01&lt;/strong&gt;&lt;br&gt;
-Clone or download the latest source of Baidu Exporter from &lt;a href=&quot;https://github.com/acgotaku/BaiduExporter&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;0x02&lt;/strong&gt;&lt;br&gt;
-Launch Chrome, open &lt;code&gt;chrome://extensions&lt;/code&gt;, &lt;code&gt;Pack extension&lt;/code&gt;. Browse the source you just downloaded, &lt;code&gt;Pack Extension&lt;/code&gt;. (You don’t need to browse private key file if you do this the first time, it will generate a new one automaticly.) The newly built extension will be found in the source folder with a &lt;code&gt;*.pem&lt;/code&gt; file, Keep Them All, you will need that &lt;code&gt;.pem&lt;/code&gt; file if you want to update the extension in the furture. Drag the &lt;code&gt;*.crx&lt;/code&gt; file to the &lt;code&gt;chrome://extension&lt;/code&gt; page to load it. And you will find the extension been disabled if you relaunch the Chrome. By the way, copy the extension id to somewhere like a notepad. We will need it next.&lt;br&gt;
-&lt;img src=&quot;https://i.imgur.com/k68t5HR.png&quot; alt=&quot;Extension ID&quot;&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;tl-dr&quot;&gt;TL;DR&lt;/h1&gt;
+&lt;p&gt;It’s been a loooooong time since the last update. Just cause I’m too lazy. X P&lt;/p&gt;
+&lt;p&gt;Chrome removed Baidu Exporter from Chrome App Store &lt;s&gt;due to some unknown Python transaction&lt;/s&gt; recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if unpacked extensions are loaded.&lt;/p&gt;
+&lt;p&gt;So in this thread I’ll provide a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by &lt;a href=&quot;https://github.com/ungrown&quot;&gt;ungrown@Github&lt;/a&gt;, thanks.&lt;/p&gt;
     
     </summary>
     
@@ -225,32 +233,19 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
   </entry>
   
   <entry>
-    <title>Amazon Cloud Dirve 使用评测</title>
+    <title>Amazon Cloud Dirve Review</title>
     <link href="https://hencolle.com/2015/12/04/ACD_Hands_On/"/>
     <id>https://hencolle.com/2015/12/04/ACD_Hands_On/</id>
     <published>2015-12-04T06:29:38.000Z</published>
-    <updated>2016-08-15T04:37:07.496Z</updated>
+    <updated>2016-10-17T03:41:40.458Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="目录"><a class="header-anchor" href="#目录"># </a>目录</h2>
-<ul>
-<li><a href="#C1">介绍</a></li>
-<li><a href="#C2">体验</a></li>
-<li><a href="#C3">测试环境</a></li>
-<li><a href="#C4">速度测试</a></li>
-<li><a href="#C5">安全性</a></li>
-<li><a href="#C6">结论</a></li>
-<li><a href="#C7">更新</a></li>
-<li><a href="#C8">注释</a></li>
-</ul>
-<p><a id="C1"></a></p>
-<h2 id="介绍"><a class="header-anchor" href="#介绍"># </a>介绍</h2>
+    <content type="html"><![CDATA[<h1 id="介绍">介绍</h1>
 <p>笔者在今天上午<sup><a href="#R1">[1]</a></sup>无意间发现渣玛逊黑五特惠<sup><a href="#R2">[2]</a></sup>中，ACD(Amazon Cloud Drive) 的 special offer 特别的诱人，unlimited plan 包年 5 USD<sup><a href="#R3">[3]</a></sup>.</p>
 <p>首先是购买方面，只能使用双币卡如 VISA 或者 MasterCard，从下单到收到 ACD 账户开通邮件耗时一小时左右。</p>
 <p>购买之前笔者主要使用百度云来保存分享专辑<s>和本子</s>这类体积小的数据，尝试同步系统备份上去最后因为文件大小限制而作罢。<sup><a href="#R5">[4]</a></sup></p>
 <a id="more"></a>
-<h2 id="price-feature"><a class="header-anchor" href="#price-feature"># </a>Price &amp; Feature</h2>
-<p><a id="C2"></a></p>
-<h2 id="体验"><a class="header-anchor" href="#体验"># </a>体验</h2>
+<h1 id="price-feature">Price &amp; Feature</h1>
+<h1 id="体验">体验</h1>
 <p>网页端做的挺好看，可以后台上传，支持在线浏览图片和视频，不能预览压缩包的内容，有垃圾箱。建议语言设成英文，因为中文默认的是宋体，丑爆了 ( ´_ゝ`)</p>
 <p><img src="https://c.hime.io/images/2Jv.png" alt="WebPanel.png" title="Overview"></p>
 <p><img src="https://c.hime.io/images/V3a.png" alt="WebPanel02.png" title="All"></p>
@@ -259,8 +254,7 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
 <p><img src="https://c.hime.io/images/7JX.png" alt="Client01.png" title="Login"></p>
 <p><img src="https://c.hime.io/images/Qom.png" alt="Client02.png" title="Overview"></p>
 <p>注意：<s>客户端会根据你的系统语言选择登陆区域，也就是说如果你使用简体中文系统，就会默认使用 <a href="http://amazon.cn" target="_blank" rel="external">amazon.cn</a> 登陆，你输入 <a href="http://amazon.com" target="_blank" rel="external">amazon.com</a> 的账户会提示密码错误。解决办法是暂时将系统语言设为 en-US, 登陆账号后再切换回来。</s></p>
-<p><a id="C3"></a></p>
-<h2 id="测试环境"><a class="header-anchor" href="#测试环境"># </a>测试环境</h2>
+<h1 id="测试环境">测试环境</h1>
 <p><strong>系统环境</strong></p>
 <p>VMWare Workstation 12 pro</p>
 <p>Windows 8.1 Enterprise x64</p>
@@ -274,9 +268,8 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
 <p>DNS2SOCKS v2.0</p>
 <p><strong>测试方法</strong></p>
 <p>首先在 VMWare 部署了一个 MSDN 版的 Windows 8.1，关闭了系统自动更新避免干扰。SS 连接远程伺服器进行加密代理，通过 Proxifier 强制 Amazon Cloud Drive 通过 SS 的 SOCKS5 加密隧道进行连接。 Speed Meter 手动测速，GlassWire 监测 ACD 发起的连接的目标地址和协议。</p>
-<p><a id="C4"></a></p>
-<h2 id="速度测试"><a class="header-anchor" href="#速度测试"># </a>速度测试</h2>
-<h4 id="直连"><a class="header-anchor" href="#直连"># </a>直连</h4>
+<h1 id="速度测试">速度测试</h1>
+<h2 id="直连">直连</h2>
 <p><strong>Bandwidth</strong></p>
 <p><img src="https://c.hime.io/images/jlq.png" alt="4885946495.png" title="China Unicom; Bandwidth: Download: 12.19 Mb/s; Upload 13.10 Mb/s; Ping: 1 ms"></p>
 <p><strong>Traceroute</strong></p>
@@ -428,7 +421,7 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
 <p>Then download the 130 MB VM disk file.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Incoming</span><br><span class="line">4Current transfer rate	<span class="number">14.6</span> KB/s</span><br><span class="line">4Average Transfer Rate	<span class="number">18.1</span> KB/s</span><br><span class="line">4Maximum Transfer Rate	<span class="number">46.0</span> KB/s</span><br><span class="line">Total</span><br><span class="line">4Received	<span class="number">10.6</span> MB</span><br><span class="line">4Sent	<span class="number">475</span> KB</span><br><span class="line">4Total Data Transferred	<span class="number">11.1</span> MB</span><br><span class="line">Since	<span class="number">12</span>/<span class="number">4</span>/<span class="number">2015</span> <span class="number">2</span>:<span class="number">27</span>:<span class="number">20</span> PM</span><br><span class="line">Elapsed time: <span class="number">00</span>-<span class="number">10</span>-<span class="number">00</span></span><br></pre></td></tr></table></figure>
 <p>直连的下载速度过于感人，我实在没耐心等待它下载完便提前终止了下载任务，但我想这10分钟的数据足够反映一些情况了。</p>
-<h4 id="bandwagon-am"><a class="header-anchor" href="#bandwagon-am"># </a>Bandwagon-AM</h4>
+<h2 id="bandwagon-am">Bandwagon-AM</h2>
 <p><strong>Bandwidth</strong></p>
 <p><img src="https://c.hime.io/images/GDl.png" alt="4886154560.png" title="Bandwagon-AM; Bandwidth: Download: 12.29 Mb/s; Upload 10.24 Mb/s; Ping: 201 ms"></p>
 <p><strong>Traceroute</strong></p>
@@ -554,7 +547,7 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
 <p><strong>Downliad Test</strong></p>
 <p>154.6 MB for both of the two files</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Incoming</span><br><span class="line">4Current transfer rate	<span class="number">1.22</span> MB/s</span><br><span class="line">4Average Transfer Rate	<span class="number">906</span> KB/s</span><br><span class="line">4Maximum Transfer Rate	<span class="number">2.64</span> MB/s</span><br><span class="line">Total</span><br><span class="line">4Received	<span class="number">161</span> MB</span><br><span class="line">4Sent	<span class="number">1.98</span> MB</span><br><span class="line">4Total Data Transferred	<span class="number">163</span> MB</span><br><span class="line">Since	<span class="number">12</span>/<span class="number">4</span>/<span class="number">2015</span> <span class="number">3</span>:<span class="number">38</span>:<span class="number">41</span> PM</span><br><span class="line">Elapsed time: <span class="number">00</span>-<span class="number">03</span>-<span class="number">02</span></span><br></pre></td></tr></table></figure>
-<h4 id="linode-tokyo"><a class="header-anchor" href="#linode-tokyo"># </a>Linode-Tokyo</h4>
+<h2 id="linode-tokyo">Linode-Tokyo</h2>
 <p><strong>Bandwidth</strong></p>
 <p><img src="https://c.hime.io/images/0Jq.png" alt="4886206352.png" title="Linode-Tokyo; Bandwidth: Download: 12.33 Mb/s; Upload 12.68 Mb/s; Ping: 154 ms"></p>
 <p><strong>Traceroute</strong></p>
@@ -668,15 +661,12 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
 <p><strong>Download Test</strong></p>
 <p>154.6 MB for both of the two files</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Incoming</span><br><span class="line">4Current transfer rate	<span class="number">805</span> KB/s</span><br><span class="line">4Average Transfer Rate	<span class="number">1.03</span> MB/s</span><br><span class="line">4Maximum Transfer Rate	<span class="number">2.85</span> MB/s</span><br><span class="line">Total</span><br><span class="line">4Received	<span class="number">161</span> MB</span><br><span class="line">4Sent	<span class="number">1.77</span> MB</span><br><span class="line">4Total Data Transferred	<span class="number">163</span> MB</span><br><span class="line">Since	<span class="number">12</span>/<span class="number">4</span>/<span class="number">2015</span> <span class="number">4</span>:<span class="number">18</span>:<span class="number">58</span> PM</span><br><span class="line">Elapsed time: <span class="number">00</span>-<span class="number">02</span>-<span class="number">37</span></span><br></pre></td></tr></table></figure>
-<p><a id="C5"></a></p>
-<h2 id="安全性"><a class="header-anchor" href="#安全性"># </a>安全性</h2>
+<h1 id="安全性">安全性</h1>
 <p>桌面客户端和网页端的所有传入传出连接皆通过 <code>Hypertext Transfer Protocol over SSL/TSL (HTTPS)</code> 进行加密传输，相比于其他部分 P2P 传输工具来说更为安全可靠。</p>
-<p><a id="C6"></a></p>
-<h2 id="结论"><a class="header-anchor" href="#结论"># </a>结论</h2>
+<h1 id="结论">结论</h1>
 <p>目前从中国大陆直连美国 ACD 伺服器有较严重的丢包率，下载速度过于感人，上传则可以接受。在使用代理后，上传/下载速度都有了明显的改善，但是 VPS 的购入又是一份额外支出，所以还是看你自己觉得值不值了。笔者的建议是如果你有大量敏感数据需要安全的托管而且不经常读取，那么丢到 ACD 上很合适，上传速度不挂代理也足够用。但是如果经常从云盘读取小文档，那么笔者还是推荐用购入 Office 365 with 1T OneDrive。如果只是用来分享<s>本子</s>和专辑，那么还是用百度云吧，速度够快，客户端做的良心，默认 1T 免费容量也足够用。</p>
 <p>另外 ACD 也有在中国大陆地区提供服务<a href="#R4">[4]</a>，笔者将会在发文之后询问是否可以将美国的订阅转移至中国区，届时会在本文更新。</p>
-<p><a id="C7"></a></p>
-<h2 id="更新"><a class="header-anchor" href="#更新"># </a>更新</h2>
+<h1 id="更新">更新</h1>
 <p><strong>2015-12-08 18:05:13 更新</strong></p>
 <p>从客服邮件获取的一些使用细节：</p>
 <ol>
@@ -689,7 +679,7 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
 <p><strong>2016-02-22 20:36:58 更新</strong></p>
 <p>对 Amazon Cloud Drive 的三个 Windows 客户端的评测：</p>
 <p><strong>Amazon Cloud Drive Client for Windows</strong></p>
-<p><strong>odrive</strong></p>
+<p><strong>Onedrive</strong></p>
 <blockquote>
 <p>Sync keeps your computer synchronized with all your files in odrive. Every file from every link is in the odrive folder. Open, add, change and reorganize cloud files like regular files.</p>
 </blockquote>
@@ -701,30 +691,16 @@ rw-------+ 1 Explorare Explorare  406 Dec 13 17:36 authorized_keys
 <li>使用 ACD 实时备份监控录像</li>
 </ul>
 <hr>
-<h2 id="注释-a-id-c8-a"><a class="header-anchor" href="#注释-a-id-c8-a"># </a>注释 <a id="C8"></a></h2>
+<h1 id="reference">Reference</h1>
 <p><a id="R1">[1]</a> 本文开始撰写于 2015-11-27 23:18:45 (GMT+8)，但由于发现那段时间上海国际出口线路受到严重干扰，traceroute 自己的美国 VPS 丢包率超过 80%，所以暂时等待线路稳定后完成数据采集部分。截至发稿时 (2015-12-04 17:38:25 (GMT+8)) 此活动依然有效。</p>
 <p><a id="R2">[2]</a> <a href="https://www.amazon.com/gp/drive/landing/everything/buy?ref_=cd_asin_ue_buy?tag=b0c55-20" target="_blank" rel="external">Amazon Cloud Drive: Cloud Storage - Online Backup</a></p>
 <p><a id="R3">[3]</a> Current exchange rate: 100 USD = 639.41 CNY (From Google Finanace)</p>
 <p><a id="R4">[4]</a> <a href="http://www.amazon.cn/gp/feature.html?docId=192978" target="_blank" rel="external">Amazon Cloud Drive</a></p>
-<h2 id="授权"><a class="header-anchor" href="#授权"># </a>授权</h2>
-<p><a rel="external" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Amazon Cloud Disk Review</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="hencolle.com" property="cc:attributionName" rel="cc:attributionURL">Explorare</a> 创作，采用 <a rel="external" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">知识共享 署名-相同方式共享 4.0 国际 许可协议</a>进行许可。<br>本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://hencolle.com" rel="cc:morePermissions">hencolle.com</a> 处获得。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;目录&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#目录&quot;&gt;# &lt;/a&gt;目录&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#C1&quot;&gt;介绍&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#C2&quot;&gt;体验&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#C3&quot;&gt;测试环境&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#C4&quot;&gt;速度测试&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#C5&quot;&gt;安全性&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#C6&quot;&gt;结论&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#C7&quot;&gt;更新&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#C8&quot;&gt;注释&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a id=&quot;C1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;介绍&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#介绍&quot;&gt;# &lt;/a&gt;介绍&lt;/h2&gt;
+      &lt;h1 id=&quot;介绍&quot;&gt;介绍&lt;/h1&gt;
 &lt;p&gt;笔者在今天上午&lt;sup&gt;&lt;a href=&quot;#R1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;无意间发现渣玛逊黑五特惠&lt;sup&gt;&lt;a href=&quot;#R2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;中，ACD(Amazon Cloud Drive) 的 special offer 特别的诱人，unlimited plan 包年 5 USD&lt;sup&gt;&lt;a href=&quot;#R3&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 &lt;p&gt;首先是购买方面，只能使用双币卡如 VISA 或者 MasterCard，从下单到收到 ACD 账户开通邮件耗时一小时左右。&lt;/p&gt;
 &lt;p&gt;购买之前笔者主要使用百度云来保存分享专辑&lt;s&gt;和本子&lt;/s&gt;这类体积小的数据，尝试同步系统备份上去最后因为文件大小限制而作罢。&lt;sup&gt;&lt;a href=&quot;#R5&quot;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
