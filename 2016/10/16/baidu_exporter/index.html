@@ -104,7 +104,7 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
 <meta property="og:image" content="https://i.imgur.com/99J4LAX.png">
 <meta property="og:image" content="https://i.imgur.com/mQCenSj.png">
 <meta property="og:image" content="https://i.imgur.com/jZUn0Xb.png">
-<meta property="og:updated_time" content="2016-10-17T16:06:01.000Z">
+<meta property="og:updated_time" content="2016-10-24T11:27:29.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Guide on Packaging and Import Baidu Exporter to Chrome">
 <meta name="twitter:description" content="TL;DR
@@ -313,6 +313,7 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
 <img src="https://i.imgur.com/k68t5HR.png" alt="Extension ID"></li>
 </ol>
 <h1 id="apply-chrome-policy-using-group-policy-editor">Apply Chrome policy using Group Policy Editor</h1>
+<p>For Mac users, scroll down to the last section. There is a better solution for you.</p>
 <ol>
 <li>Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.</li>
 <li>Extract the <code>./Windows/adm/en-US/chrome.adm</code>.</li>
@@ -334,6 +335,16 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
 <img src="https://i.imgur.com/jZUn0Xb.png" alt="Second"></li>
 </ol>
 <p>The extension will be enabled by default after Chrome relaunched.</p>
+<h1 id="for-mac-users">For Mac users</h1>
+<p>The solution for MacOS comes from <a href="https://github.com/tofuliang" target="_blank" rel="external">tofuliang@Github</a>, thanks.</p>
+<ol>
+<li>Download the following policy template.</li>
+</ol>
+<script src="//gist.github.com/be3dd598289252698cd37bca04abd0fe.js?file=com.google.Chrome.mobileconfig"></script>
+<ol start="2">
+<li>Add the extension ID to line 19, delete  line 20 and 21 if you don’t need it. Save.</li>
+<li>Double click to import this policy. Reboot.</li>
+</ol>
 <hr>
 <h1 id="references">References</h1>
 <ul>
@@ -525,7 +536,7 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tl-dr"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#download-the-extension"><span class="nav-number">2.</span> <span class="nav-text">Download the extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#package-the-extension"><span class="nav-number">3.</span> <span class="nav-text">Package the extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#apply-chrome-policy-using-group-policy-editor"><span class="nav-number">4.</span> <span class="nav-text">Apply Chrome policy using Group Policy Editor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#add-it-to-whitelist"><span class="nav-number">5.</span> <span class="nav-text">Add it to whitelist</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">6.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tl-dr"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#download-the-extension"><span class="nav-number">2.</span> <span class="nav-text">Download the extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#package-the-extension"><span class="nav-number">3.</span> <span class="nav-text">Package the extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#apply-chrome-policy-using-group-policy-editor"><span class="nav-number">4.</span> <span class="nav-text">Apply Chrome policy using Group Policy Editor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#add-it-to-whitelist"><span class="nav-number">5.</span> <span class="nav-text">Add it to whitelist</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for-mac-users"><span class="nav-number">6.</span> <span class="nav-text">For Mac users</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">7.</span> <span class="nav-text">References</span></a></li></ol></div>
             
           </div>
         </section>

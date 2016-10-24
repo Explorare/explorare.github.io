@@ -118,7 +118,7 @@ Via Typographic literacy <sup class="footnote-ref"><a href="#fn7" id="fnref7">[7
     <link href="https://hencolle.com/2016/10/16/baidu_exporter/"/>
     <id>https://hencolle.com/2016/10/16/baidu_exporter/</id>
     <published>2016-10-15T16:00:00.000Z</published>
-    <updated>2016-10-17T16:06:01.000Z</updated>
+    <updated>2016-10-24T11:27:29.040Z</updated>
     
     <content type="html"><![CDATA[<h1 id="tl-dr">TL;DR</h1>
 <p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
@@ -139,6 +139,7 @@ Via Typographic literacy <sup class="footnote-ref"><a href="#fn7" id="fnref7">[7
 <img src="https://i.imgur.com/k68t5HR.png" alt="Extension ID"></li>
 </ol>
 <h1 id="apply-chrome-policy-using-group-policy-editor">Apply Chrome policy using Group Policy Editor</h1>
+<p>For Mac users, scroll down to the last section. There is a better solution for you.</p>
 <ol>
 <li>Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.</li>
 <li>Extract the <code>./Windows/adm/en-US/chrome.adm</code>.</li>
@@ -160,6 +161,16 @@ Via Typographic literacy <sup class="footnote-ref"><a href="#fn7" id="fnref7">[7
 <img src="https://i.imgur.com/jZUn0Xb.png" alt="Second"></li>
 </ol>
 <p>The extension will be enabled by default after Chrome relaunched.</p>
+<h1 id="for-mac-users">For Mac users</h1>
+<p>The solution for MacOS comes from <a href="https://github.com/tofuliang" target="_blank" rel="external">tofuliang@Github</a>, thanks.</p>
+<ol>
+<li>Download the following policy template.</li>
+</ol>
+<script src="//gist.github.com/be3dd598289252698cd37bca04abd0fe.js?file=com.google.Chrome.mobileconfig"></script>
+<ol start="2">
+<li>Add the extension ID to line 19, delete  line 20 and 21 if you don’t need it. Save.</li>
+<li>Double click to import this policy. Reboot.</li>
+</ol>
 <hr>
 <h1 id="references">References</h1>
 <ul>
