@@ -183,6 +183,33 @@ Via Typographic literacy <sup class="footnote-ref"><a href="#fn7" id="fnref7">[7
   </entry>
   
   <entry>
+    <title>About Me</title>
+    <link href="https://hencolle.com/2016/05/23/About_Me/"/>
+    <id>https://hencolle.com/2016/05/23/About_Me/</id>
+    <published>2016-05-23T01:55:09.000Z</published>
+    <updated>2016-05-23T02:03:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在校码农，三年 VPS 维护经验，目前拥有三台主力 VPS，出售日本/美国 SS 线路。PGP 拥护者，反对言论审查，水表已拆没有快递。</p>
+<p>开发语言：Python, C#.</p>
+<p>开发平台：Windows 8.1, CentOS 7.</p>
+<p>目前研究的技术：Docker, CNN.</p>
+<p>邮箱：explorare@hencolle.com</p>
+<p>PGP 公钥：<a href="https://keybase.io/explorare" target="_blank" rel="external">Explorare H. David (explorare) | Keybase</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在校码农，三年 VPS 维护经验，目前拥有三台主力 VPS，出售日本/美国 SS 线路。PGP 拥护者，反对言论审查，水表已拆没有快递。&lt;/p&gt;
+&lt;p&gt;开发语言：Python, C#.&lt;/p&gt;
+&lt;p&gt;开发平台：Windows 8.1, CentOS 7.&lt;/p&gt;
+&lt;p&gt;目前
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Fix systax error in Wordpress inside docker</title>
     <link href="https://hencolle.com/2016/04/30/Wordpress_Syntax_Error/"/>
     <id>https://hencolle.com/2016/04/30/Wordpress_Syntax_Error/</id>
