@@ -4,7 +4,7 @@
 <Account> 
 <AccountType>email</AccountType> 
 <Action>redirectUrl</Action> 
-<RedirectUrl>https://autodiscover-s.outlook.com/Autodiscover/Autodiscover.xml</RedirectUrl> 
+<RedirectUrl>https://autodiscover.yandex.com/autodiscover/autodiscover.xml</RedirectUrl> 
 </Account> 
 </Response> 
 </Autodiscover>
