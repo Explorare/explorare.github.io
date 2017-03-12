@@ -61,7 +61,7 @@
     <link href="https://hencolle.com/2016/10/16/baidu_exporter/"/>
     <id>https://hencolle.com/2016/10/16/baidu_exporter/</id>
     <published>2016-10-15T16:00:00.000Z</published>
-    <updated>2016-12-23T03:20:48.623Z</updated>
+    <updated>2017-03-12T14:31:53.023Z</updated>
     
     <content type="html"><![CDATA[<h1 id="tl-dr">TL;DR</h1>
 <p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
@@ -71,48 +71,71 @@
 <h1 id="download-the-extension">Download the extension</h1>
 <p>Clone or download the latest copy of Baidu Exporter from <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">here</a>.</p>
 <h1 id="package-the-extension">Package the extension</h1>
+<p>This step is unnecessary if you have the complied version.</p>
 <ol>
-<li>Launch Chrome, open <code>chrome://extensions</code>, <code>Pack extension</code>.
-<img src="https://i.imgur.com/XzsfOZz.png" alt=""></li>
-<li>Browse the code you just downloaded, <code>Pack Extension</code>.
-<img src="https://i.imgur.com/Ses0MHk.png" alt=""></li>
-<li>The newly built extension will be found in the source folder with a <code>*.pem</code> file, Keep Them All, you will need that <code>.pem</code> file if you want to update the extension in the furture.
-<img src="https://i.imgur.com/1bAspBj.png" alt=""></li>
-<li>Drag the <code>*.crx</code> file to the <code>chrome://extension</code> page to load it. But \the extension will be disabled if Chrome relaunched. Also, copy the extension id to somewhere like a notepad. You will need it later.
-<img src="https://i.imgur.com/k68t5HR.png" alt="Extension ID"></li>
+<li>
+<p>Launch Chrome, open <code>chrome://extensions</code>, click <code>Pack extension</code> on top-left.</p>
+</li>
+<li>
+<p>Browse the code you just downloaded, click <code>Pack Extension</code>.</p>
+</li>
+<li>
+<p>The newly built extension will be found in the source folder with a <code>*.pem</code> file, <strong>keep them all</strong>, you will need that <code>.pem</code> file if you want to update the extension in the furture.</p>
+</li>
+<li>
+<p>Drag the <code>*.crx</code> file to the <code>chrome://extension</code> page to install it. Select the <code>Developer Mode</code> checkbox to show the hidden extension ID, save it somewhere.</p>
+</li>
 </ol>
 <h1 id="apply-chrome-policy-using-group-policy-editor">Apply Chrome policy using Group Policy Editor</h1>
-<p>For Mac users, scroll down to the last section. There is a better solution for you.</p>
+<p>See <a href="#last">For MacOS Users</a> if you are using <strong>MacOS</strong>.</p>
 <ol>
-<li>Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.</li>
-<li>Extract the <code>./Windows/adm/en-US/chrome.adm</code>.</li>
-<li>Navigate to Start &gt; Run: <code>gpedit.msc</code>. For those why running a Windows 10 or any starter or home edition, the group policy editor is not embeded by default. Follow <a href="https://www.itechtics.com/enable-gpedit-windows-10-home/" target="_blank" rel="external">this</a> guide to enable it first. (Thanks @metafaniel for refering this issue.)</li>
-<li>Navigate to <code>Local Computer Policy</code> &gt; <code>Computer Configuration</code> &gt; <code>Administrative Templates</code>.</li>
-<li>Right-click <code>Administrative Templates</code>, and select <code>Add/Remove Templates</code>.</li>
-<li>Add the <code>chrome.adm</code> template via the dialog.</li>
-<li>Once complete, a <code>Google / Google Chrome</code> folder will appear under <code>Administrative Templates</code> if it’s not already there. If you added the ADM template on Windows 7 or 8.1, it will appear under <code>Classic Administrative Templates / Google / Google Chrome</code>.</li>
+<li>
+<p>Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.</p>
+</li>
+<li>
+<p>Extract the following files or folders into <code>%SystemRoot%\PolicyDefinitions</code>:</p>
+<ul>
+<li><code>./Windows/admx/chrome.admx</code>;</li>
+<li><code>./Windows/admx/google.admx</code>;</li>
+<li><code>./Windows/admx/en-US/</code>;</li>
+<li><code>./Windows/admx/zh-CN</code>.</li>
+</ul>
+</li>
 </ol>
-<h1 id="add-it-to-whitelist">Add it to whitelist</h1>
-<p>Add the extension by the following steps:</p>
+<ol start="3">
+<li>Press <code>Win+R</code> and run: <code>gpedit.msc</code>. A sub-folder named <code>Google / Google Chrome</code> can be found under <code>Local Computer Policy &gt; Computer Configuration &gt; Administrative Templates</code>. (Ps. The group policy editor is not embeded with starter and home editions. Follow <a href="https://www.itechtics.com/enable-gpedit-windows-10-home/" target="_blank" rel="external">this</a> guide to install it first. (Thanks @metafaniel for refering this issue.))</li>
+</ol>
+<h1 id="add-the-extension-id-to-whitelist">Add the extension ID to whitelist</h1>
+<p>Add the extension ID by the following steps:</p>
 <ol>
-<li>Navigate to <code>Classic Administrative Templates / Google / Google Chrome / Extensions</code> secition.
-<img src="https://i.imgur.com/Ifa0HwV.png" alt="Classic Administrative Templates / Google / Google Chrome / Extensions"></li>
-<li>Double click to open <code>Configure extension installation whitelist</code> on the right side.
-<img src="https://i.imgur.com/99J4LAX.png" alt="Configure extension installation whitelist"></li>
-<li>Enable the policy and add the extenison id to the whitelist.
-<img src="https://i.imgur.com/mQCenSj.png" alt="First">
-<img src="https://i.imgur.com/jZUn0Xb.png" alt="Second"></li>
+<li>
+<p>Navigate to <code>Administrative Templates / Google / Google Chrome / Extensions</code> section.</p>
+</li>
+<li>
+<p>Double click to open <code>Configure extension installation whitelist</code> on the right side.</p>
+</li>
+<li>
+<p>Enable the policy and click <code>Show...</code> to add the extension ID.</p>
+</li>
 </ol>
 <p>The extension will be enabled by default after Chrome relaunched.</p>
-<h1 id="for-mac-users">For Mac users</h1>
-<p>The solution for MacOS comes from <a href="https://github.com/tofuliang" target="_blank" rel="external">tofuliang@Github</a>, thanks.</p>
+<p><a id="last"></a></p>
+<h1 id="for-macos-users">For MacOS Users</h1>
+<p>The solution for MacOS came from <a href="https://github.com/tofuliang" target="_blank" rel="external">tofuliang@Github</a>, thanks.</p>
 <ol>
 <li>Download the following policy template.</li>
 </ol>
 <script src="//gist.github.com/be3dd598289252698cd37bca04abd0fe.js?file=com.google.Chrome.mobileconfig"></script>
 <ol start="2">
-<li>Add the extension ID to line 19, delete  line 20 and 21 if you don’t need it. Save.</li>
-<li>Double click to import this policy. Reboot.</li>
+<li>
+<p>Add the extension ID to line 19, delete  line 20 and 21 if you don’t need it. Save.</p>
+</li>
+<li>
+<p>Double click to import this policy.</p>
+</li>
+<li>
+<p><strong>Reboot</strong>.</p>
+</li>
 </ol>
 <hr>
 <h1 id="references">References</h1>
@@ -121,7 +144,6 @@
 <li><a href="https://developer.chrome.com/webstore/get_started_simple#step5" target="_blank" rel="external">Tutorial: Getting Started - Google Chrome</a></li>
 <li><a href="https://developer.chrome.com/extensions/packaging" target="_blank" rel="external">Packaging - Google Chrome</a></li>
 <li><a href="https://support.google.com/chrome/a/answer/187202?hl=en" target="_blank" rel="external">Set Chrome policies for devices - Chrome for business and education Help</a></li>
-<li><a href="https://github.com/acgotaku/BaiduExporter/issues/277#issuecomment-255707307" target="_blank" rel="external">0.8.5在chrome商店被删 · Issue #277 · acgotaku/BaiduExporter</a></li>
 </ul>
 ]]></content>
     
