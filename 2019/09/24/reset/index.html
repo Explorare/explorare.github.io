@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="HentaiCollection" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Good Old Days" type="application/atom+xml" />
 
 
 
@@ -86,22 +86,16 @@
 
 
 
-<meta name="description" content="TL;DR
-It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
-Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to securit">
+<meta name="description" content="时隔多年，本博客又要开始更新了。正如标题所写，这次更新是博客的重启。因为我已经不再搞编程，而且之前的内容显得很过时且多余，所以之前的文章都被删除了。会注意到本次更新的朋友大概只有订阅了RSS的人吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Guide on Packaging and Import Baidu Exporter to Chrome">
-<meta property="og:url" content="https://hencolle.com/2016/10/16/baidu_exporter/index.html">
-<meta property="og:site_name" content="HentaiCollection">
-<meta property="og:description" content="TL;DR
-It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
-Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to securit">
-<meta property="og:updated_time" content="2017-03-12T14:31:53.023Z">
+<meta property="og:title" content="You will restart in 24 hours">
+<meta property="og:url" content="https://hencolle.com/2019/09/24/reset/index.html">
+<meta property="og:site_name" content="Good Old Days">
+<meta property="og:description" content="时隔多年，本博客又要开始更新了。正如标题所写，这次更新是博客的重启。因为我已经不再搞编程，而且之前的内容显得很过时且多余，所以之前的文章都被删除了。会注意到本次更新的朋友大概只有订阅了RSS的人吧。">
+<meta property="og:updated_time" content="2019-09-24T03:23:34.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Guide on Packaging and Import Baidu Exporter to Chrome">
-<meta name="twitter:description" content="TL;DR
-It’s been a loooooong time since the last update. Just cause I’m too lazy. X P
-Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to securit">
+<meta name="twitter:title" content="You will restart in 24 hours">
+<meta name="twitter:description" content="时隔多年，本博客又要开始更新了。正如标题所写，这次更新是博客的重启。因为我已经不再搞编程，而且之前的内容显得很过时且多余，所以之前的文章都被删除了。会注意到本次更新的朋友大概只有订阅了RSS的人吧。">
 
 
 
@@ -119,10 +113,10 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
   };
 </script>
 
-  <title> Guide on Packaging and Import Baidu Exporter to Chrome | HentaiCollection </title>
+  <title> You will restart in 24 hours | Good Old Days </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="cn">
 
   
 
@@ -150,7 +144,7 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">HentaiCollection</span>
+      <span class="site-title">Good Old Days</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -239,7 +233,7 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
             
             
               
-                Guide on Packaging and Import Baidu Exporter to Chrome
+                You will restart in 24 hours
               
             
           </h1>
@@ -251,8 +245,8 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-16T01:00:00+09:00" content="2016-10-16">
-              2016-10-16
+            <time itemprop="dateCreated" datetime="2019-09-24T09:48:00+08:00" content="2019-09-24">
+              2019-09-24
             </time>
           </span>
 
@@ -262,8 +256,8 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/16/baidu_exporter/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/16/baidu_exporter/" itemprop="commentsCount"></span>
+                <a href="/2019/09/24/reset/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/24/reset/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -286,88 +280,15 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
       
 
       
-        <h1 id="tl-dr">TL;DR</h1>
-<p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
-<p>Chrome removed Baidu Exporter from Chrome App Store <s>due to some unknown Python transaction</s> recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if unpacked extensions are loaded.</p>
-<p>So in this thread I’ll provide a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by <a href="https://github.com/ungrown" target="_blank" rel="external">ungrown@Github</a>, thanks.</p>
+        <p>时隔多年，本博客又要开始更新了。正如标题所写，这次更新是博客的重启。因为我已经不再搞编程，而且之前的内容显得很过时且多余，所以之前的文章都被删除了。会注意到本次更新的朋友大概只有订阅了RSS的人吧。</p>
 <a id="more"></a>
-<h1 id="download-the-extension">Download the extension</h1>
-<p>Clone or download the latest copy of Baidu Exporter from <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">here</a>.</p>
-<h1 id="package-the-extension">Package the extension</h1>
-<p>This step is unnecessary if you have the complied version.</p>
-<ol>
-<li>
-<p>Launch Chrome, open <code>chrome://extensions</code>, click <code>Pack extension</code> on top-left.</p>
-</li>
-<li>
-<p>Browse the code you just downloaded, click <code>Pack Extension</code>.</p>
-</li>
-<li>
-<p>The newly built extension will be found in the source folder with a <code>*.pem</code> file, <strong>keep them all</strong>, you will need that <code>.pem</code> file if you want to update the extension in the furture.</p>
-</li>
-<li>
-<p>Drag the <code>*.crx</code> file to the <code>chrome://extension</code> page to install it. Select the <code>Developer Mode</code> checkbox to show the hidden extension ID, save it somewhere.</p>
-</li>
-</ol>
-<h1 id="apply-chrome-policy-using-group-policy-editor">Apply Chrome policy using Group Policy Editor</h1>
-<p>See <a href="#last">For MacOS Users</a> if you are using <strong>MacOS</strong>.</p>
-<ol>
-<li>
-<p>Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">here</a>.</p>
-</li>
-<li>
-<p>Extract the following files or folders into <code>%SystemRoot%\PolicyDefinitions</code>:</p>
-<ul>
-<li><code>./Windows/admx/chrome.admx</code>;</li>
-<li><code>./Windows/admx/google.admx</code>;</li>
-<li><code>./Windows/admx/en-US/</code>;</li>
-<li><code>./Windows/admx/zh-CN</code>.</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li>Press <code>Win+R</code> and run: <code>gpedit.msc</code>. A sub-folder named <code>Google / Google Chrome</code> can be found under <code>Local Computer Policy &gt; Computer Configuration &gt; Administrative Templates</code>. (Ps. The group policy editor is not embeded with starter and home editions. Follow <a href="https://www.itechtics.com/enable-gpedit-windows-10-home/" target="_blank" rel="external">this</a> guide to install it first. (Thanks @metafaniel for refering this issue.))</li>
-</ol>
-<h1 id="add-the-extension-id-to-whitelist">Add the extension ID to whitelist</h1>
-<p>Add the extension ID by the following steps:</p>
-<ol>
-<li>
-<p>Navigate to <code>Administrative Templates / Google / Google Chrome / Extensions</code> section.</p>
-</li>
-<li>
-<p>Double click to open <code>Configure extension installation whitelist</code> on the right side.</p>
-</li>
-<li>
-<p>Enable the policy and click <code>Show...</code> to add the extension ID.</p>
-</li>
-</ol>
-<p>The extension will be enabled by default after Chrome relaunched.</p>
-<p><a id="last"></a></p>
-<h1 id="for-macos-users">For MacOS Users</h1>
-<p>The solution for MacOS came from <a href="https://github.com/tofuliang" target="_blank" rel="external">tofuliang@Github</a>, thanks.</p>
-<ol>
-<li>Download the following policy template.</li>
-</ol>
-<script src="//gist.github.com/be3dd598289252698cd37bca04abd0fe.js?file=com.google.Chrome.mobileconfig"></script>
-<ol start="2">
-<li>
-<p>Add the extension ID to line 19, delete  line 20 and 21 if you don’t need it. Save.</p>
-</li>
-<li>
-<p>Double click to import this policy.</p>
-</li>
-<li>
-<p><strong>Reboot</strong>.</p>
-</li>
-</ol>
-<hr>
-<h1 id="references">References</h1>
-<ul>
-<li><a href="https://github.com/acgotaku/BaiduExporter/issues/277#issuecomment-253988038" target="_blank" rel="external">0.8.5在chrome商店被删 · Issue #277 · acgotaku/BaiduExporter</a></li>
-<li><a href="https://developer.chrome.com/webstore/get_started_simple#step5" target="_blank" rel="external">Tutorial: Getting Started - Google Chrome</a></li>
-<li><a href="https://developer.chrome.com/extensions/packaging" target="_blank" rel="external">Packaging - Google Chrome</a></li>
-<li><a href="https://support.google.com/chrome/a/answer/187202?hl=en" target="_blank" rel="external">Set Chrome policies for devices - Chrome for business and education Help</a></li>
-</ul>
+<p>这里将用来记录一些我对所见所闻的即时的思考、感受。让我决定重新开始写博客的契机是最近VTuber业界发生的一些事情，比如ゲーム部的中之人被替换，Kizuna AI的多重分身，久遠千歳的毕业，以及与VTuber业界无关的，我对自身的一些思考。虽然关于VTuber业界的考察已经有很多篇内容深刻而优秀的文章了，但我还是希望记录下自己最真实的感受和思考，而不让它们随着第二天的重启和消散。</p>
+<p>之后要更新的内容与其说是资讯或者分析，更多的是记录自身的感受，在没有经历过相同事件的外人看来无非是在矫情和胡言乱语。不过我也很长时间没有写长文了，写出来的都是支离破碎的发言，不过也无所谓了。这些充满个人矫情的文章我自己也认为并不适合发在博客上，而实际上也确实是从OneNote的日记分区里的内容扩充出来的。因为是单纯的记述个人的情感和思考，所以并不期望得到理解，也不打算说服读者，而纯粹的是希望以此为媒介让多年后的自己依然能够回忆起当时的感动。</p>
+<p>人是很健忘的动物，每次睡觉都是一次重启，都会丢失一些感受。正如网站的新标题「Good Old Days」，很多在当时认为理所应当的小事，在时间的冲刷之下反而会显得无比珍贵，比如当年的暑假和群友一起黑白颠倒的联机Minecraft，开着语音一起砍树、挖矿、造房子，虽然是十分颓废的时光，但在多年之后，这些每天理所应当出现的朋友在暑假之后就再也没能联系上，连ID都没留下，也就无从寻找，只留下了亮着火把的矿洞、没有封顶得家、家门口处蹲着得狗、以及只身一人得我。多年之后我依然时不时登录进去看看，但当时得欢乐也慢慢变得不真切，只留下了感叹和忧伤。也许我现在每天聊天的网友，从某一天开始头像再也不会亮起。我对对方的印象和回忆也会被时间冲刷殆尽，最终只留下一句话，「我还曾经认识这么一个人啊」。</p>
+<p>我太过害怕时间的流逝，它带走太多东西，也将会带走更多的我所珍视东西。我曾经喜欢过得、讨厌过得、坚持过得事物，决心、梦想、回忆、感动、哀伤都被时间慢慢稀释。最终只剩下一个虚无缥缈的幻影和由残渣沉淀成的我。最近让我深有体会的是久遠千歳的隐退，让很久没哭过的我对着屏幕上的「虚假」的她正经的哭了一回，在之后偶尔看到她的剪辑视频依然让我鼻子酸。但过了半个月之后，我也渐渐不再那么难受。那么当时我的感受算是什么呢？如果不将这份情感记录下来，到了明年八月的最后一天，我又是否还会想起我曾经为一个「虚假」的形象而落泪呢。</p>
+<p>饿了</p>
+<p>摸了</p>
+<p>以上</p>
 
       
     </div>
@@ -388,24 +309,6 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
     <footer class="post-footer">
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/04/30/Wordpress_Syntax_Error/" rel="next" title="Fix systax error in Wordpress inside docker">
-                <i class="fa fa-chevron-left"></i> Fix systax error in Wordpress inside docker
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/26/visual_studio_proxy/" rel="prev" title="Set Visual Studio 2015 Working with Proxy">
-                Set Visual Studio 2015 Working with Proxy <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
@@ -477,7 +380,7 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -551,7 +454,7 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tl-dr"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#download-the-extension"><span class="nav-number">2.</span> <span class="nav-text">Download the extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#package-the-extension"><span class="nav-number">3.</span> <span class="nav-text">Package the extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#apply-chrome-policy-using-group-policy-editor"><span class="nav-number">4.</span> <span class="nav-text">Apply Chrome policy using Group Policy Editor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#add-the-extension-id-to-whitelist"><span class="nav-number">5.</span> <span class="nav-text">Add the extension ID to whitelist</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for-macos-users"><span class="nav-number">6.</span> <span class="nav-text">For MacOS Users</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">7.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
             
           </div>
         </section>
@@ -570,7 +473,7 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -671,9 +574,9 @@ Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python t
 
     <script type="text/javascript">
       var disqus_shortname = 'hencolle';
-      var disqus_identifier = '2016/10/16/baidu_exporter/';
-      var disqus_title = 'Guide on Packaging and Import Baidu Exporter to Chrome';
-      var disqus_url = 'https://hencolle.com/2016/10/16/baidu_exporter/';
+      var disqus_identifier = '2019/09/24/reset/';
+      var disqus_title = 'You will restart in 24 hours';
+      var disqus_url = 'https://hencolle.com/2019/09/24/reset/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
