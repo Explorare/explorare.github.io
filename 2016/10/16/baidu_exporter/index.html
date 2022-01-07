@@ -13,9 +13,9 @@
 <meta property="og:url" content="https://hencolle.com/2016/10/16/baidu_exporter/index.html">
 <meta property="og:site_name" content="Good Old Days">
 <meta property="og:description" content="TL;DRIt’s been a loooooong time since the last update. Just cause I’m too lazy. X P Chrome removed Baidu Exporter from Chrome App Store due to some unknown Python transaction recently. Due to security">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale">
 <meta property="article:published_time" content="2016-10-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2017-03-12T14:41:22.000Z">
+<meta property="article:modified_time" content="2022-01-07T14:13:36.048Z">
 <meta property="article:author" content="Explorare">
 <meta name="twitter:card" content="summary">
   
@@ -30,7 +30,7 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.0.0"></head>
 
 <body>
   <div id="container">
@@ -90,10 +90,9 @@
       
         <h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>It’s been a loooooong time since the last update. Just cause I’m too lazy. X P</p>
 <p>Chrome removed Baidu Exporter from Chrome App Store <del>due to some unknown Python transaction</del> recently. Due to security reason Chrome will disable extensions import locally with unknown source. You will get annoying popups every time launching Chrome if unpacked extensions are loaded.</p>
-<p>So in this thread I’ll provide a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by <a href="https://github.com/ungrown" target="_blank" rel="noopener">ungrown@Github</a>, thanks.</p>
-<a id="more"></a>
-
-<h1 id="Download-the-extension"><a href="#Download-the-extension" class="headerlink" title="Download the extension"></a>Download the extension</h1><p>Clone or download the latest copy of Baidu Exporter from <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="noopener">here</a>.</p>
+<p>So in this thread I’ll provide a better solution to load Baidu Exporter with the latest build using Windows Group Policy. This solution inspired by <a target="_blank" rel="noopener" href="https://github.com/ungrown">ungrown@Github</a>, thanks.</p>
+<p><escape><span id="more"></span></escape></p>
+<h1 id="Download-the-extension"><a href="#Download-the-extension" class="headerlink" title="Download the extension"></a>Download the extension</h1><p>Clone or download the latest copy of Baidu Exporter from <a target="_blank" rel="noopener" href="https://github.com/acgotaku/BaiduExporter">here</a>.</p>
 <h1 id="Package-the-extension"><a href="#Package-the-extension" class="headerlink" title="Package the extension"></a>Package the extension</h1><p>This step is unnecessary if you have the complied version.</p>
 <ol>
 <li><p>Launch Chrome, open <code>chrome://extensions</code>, click <code>Pack extension</code> on top-left.</p>
@@ -107,7 +106,7 @@
 </ol>
 <h1 id="Apply-Chrome-policy-using-Group-Policy-Editor"><a href="#Apply-Chrome-policy-using-Group-Policy-Editor" class="headerlink" title="Apply Chrome policy using Group Policy Editor"></a>Apply Chrome policy using Group Policy Editor</h1><p>See <a href="#last">For MacOS Users</a> if you are using <strong>MacOS</strong>.</p>
 <ol>
-<li><p>Download the zip file of Chrome templates from <a href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="noopener">here</a>.</p>
+<li><p>Download the zip file of Chrome templates from <a target="_blank" rel="noopener" href="https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip">here</a>.</p>
 </li>
 <li><p>Extract the following files or folders into <code>%SystemRoot%\PolicyDefinitions</code>:</p>
 <ul>
@@ -119,7 +118,7 @@
 </li>
 </ol>
 <ol start="3">
-<li>Press <code>Win+R</code> and run: <code>gpedit.msc</code>. A sub-folder named <code>Google / Google Chrome</code> can be found under <code>Local Computer Policy &gt; Computer Configuration &gt; Administrative Templates</code>. (Ps. The group policy editor is not embeded with starter and home editions. Follow <a href="https://www.itechtics.com/enable-gpedit-windows-10-home/" target="_blank" rel="noopener">this</a> guide to install it first. (Thanks @metafaniel for refering this issue.))</li>
+<li>Press <code>Win+R</code> and run: <code>gpedit.msc</code>. A sub-folder named <code>Google / Google Chrome</code> can be found under <code>Local Computer Policy &gt; Computer Configuration &gt; Administrative Templates</code>. (Ps. The group policy editor is not embeded with starter and home editions. Follow <a target="_blank" rel="noopener" href="https://www.itechtics.com/enable-gpedit-windows-10-home/">this</a> guide to install it first. (Thanks @metafaniel for refering this issue.))</li>
 </ol>
 <h1 id="Add-the-extension-ID-to-whitelist"><a href="#Add-the-extension-ID-to-whitelist" class="headerlink" title="Add the extension ID to whitelist"></a>Add the extension ID to whitelist</h1><p>Add the extension ID by the following steps:</p>
 <ol>
@@ -132,7 +131,7 @@
 </ol>
 <p>The extension will be enabled by default after Chrome relaunched.</p>
 <p><a id="last"></a></p>
-<h1 id="For-MacOS-Users"><a href="#For-MacOS-Users" class="headerlink" title="For MacOS Users"></a>For MacOS Users</h1><p>The solution for MacOS came from <a href="https://github.com/tofuliang" target="_blank" rel="noopener">tofuliang@Github</a>, thanks.</p>
+<h1 id="For-MacOS-Users"><a href="#For-MacOS-Users" class="headerlink" title="For MacOS Users"></a>For MacOS Users</h1><p>The solution for MacOS came from <a target="_blank" rel="noopener" href="https://github.com/tofuliang">tofuliang@Github</a>, thanks.</p>
 <ol>
 <li>Download the following policy template.</li>
 </ol>
@@ -148,16 +147,16 @@
 </ol>
 <hr>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
-<li><a href="https://github.com/acgotaku/BaiduExporter/issues/277#issuecomment-253988038" target="_blank" rel="noopener">0.8.5在chrome商店被删 · Issue #277 · acgotaku/BaiduExporter</a></li>
-<li><a href="https://developer.chrome.com/webstore/get_started_simple#step5" target="_blank" rel="noopener">Tutorial: Getting Started - Google Chrome</a></li>
-<li><a href="https://developer.chrome.com/extensions/packaging" target="_blank" rel="noopener">Packaging - Google Chrome</a></li>
-<li><a href="https://support.google.com/chrome/a/answer/187202?hl=en" target="_blank" rel="noopener">Set Chrome policies for devices - Chrome for business and education Help</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/acgotaku/BaiduExporter/issues/277#issuecomment-253988038">0.8.5在chrome商店被删 · Issue #277 · acgotaku/BaiduExporter</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.chrome.com/webstore/get_started_simple#step5">Tutorial: Getting Started - Google Chrome</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.chrome.com/extensions/packaging">Packaging - Google Chrome</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.google.com/chrome/a/answer/187202?hl=en">Set Chrome policies for devices - Chrome for business and education Help</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hencolle.com/2016/10/16/baidu_exporter/" data-id="ckbgls8wj000538nzdhcw4plb" class="article-share-link">Share</a>
+      <a data-url="https://hencolle.com/2016/10/16/baidu_exporter/" data-id="ckxxzom880003l0nz84l47cmq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -189,15 +188,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/" rel="tag">log</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/log/" style="font-size: 10px;">log</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
     </div>
   </div>
 
@@ -208,6 +221,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/01/03/my_2021/">My 2021</a>
+          </li>
         
           <li>
             <a href="/2020/06/15/Windows%2010%202004%20update%20failure%20diagnosis/">Windows 10 2004 update failure diagnosis (the proper way)</a>
@@ -229,7 +246,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 Explorare<br>
+      &copy; 2022 Explorare<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

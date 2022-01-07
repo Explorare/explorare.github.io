@@ -13,9 +13,9 @@
 <meta property="og:url" content="https://hencolle.com/2020/06/15/Windows%2010%202004%20update%20failure%20diagnosis/index.html">
 <meta property="og:site_name" content="Good Old Days">
 <meta property="og:description" content="这篇文章记录了 Windows 10 升级至 2004 版本时进度长时间卡在 61% 的排查思路和解决办法。">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale">
 <meta property="article:published_time" content="2020-06-15T10:30:00.000Z">
-<meta property="article:modified_time" content="2020-06-15T13:26:10.720Z">
+<meta property="article:modified_time" content="2022-01-07T14:13:37.226Z">
 <meta property="article:author" content="Explorare">
 <meta name="twitter:card" content="summary">
   
@@ -30,7 +30,7 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.0.0"></head>
 
 <body>
   <div id="container">
@@ -89,18 +89,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>这篇文章记录了 Windows 10 升级至 2004 版本时进度长时间卡在 61% 的排查思路和解决办法。</p>
-<a id="more"></a>
-
-<p>While Windows 10 updating from version 1909 to 2004, the progress stuck(,hang, freeze) at 61%, which is a <a href="https://docs.microsoft.com/en-us/windows/release-information/status-windows-10-2004" target="_blank" rel="noopener">known issue</a> related to Conexant ISST audio drivers.</p>
-<p>But in my case, I don’t have this driver in my system. And the Microsoft Community Forum just provides random guesses or solutions as usual, such as unplug some external devices or do a <a href="https://support.microsoft.com/en-gb/help/929833/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system" target="_blank" rel="noopener">system check</a>. </p>
-<p>Finally, here is the proper way to diagnose the issue during Windows update I found: <a href="https://docs.microsoft.com/en-us/windows/deployment/upgrade/resolve-windows-10-upgrade-errors" target="_blank" rel="noopener">Resolve Windows 10 upgrade errors - Windows IT Pro - Windows Deployment | Microsoft Docs</a></p>
+<p><escape><span id="more"></span></escape></p>
+<p>While Windows 10 updating from version 1909 to 2004, the progress stuck(,hang, freeze) at 61%, which is a <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/release-information/status-windows-10-2004">known issue</a> related to Conexant ISST audio drivers.</p>
+<p>But in my case, I don’t have this driver in my system. And the Microsoft Community Forum just provides random guesses or solutions as usual, such as unplug some external devices or do a <a target="_blank" rel="noopener" href="https://support.microsoft.com/en-gb/help/929833/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system">system check</a>. </p>
+<p>Finally, here is the proper way to diagnose the issue during Windows update I found: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/deployment/upgrade/resolve-windows-10-upgrade-errors">Resolve Windows 10 upgrade errors - Windows IT Pro - Windows Deployment | Microsoft Docs</a></p>
 <ol>
-<li>Download SetupDiag tool from <a href="https://docs.microsoft.com/en-us/windows/deployment/upgrade/setupdiag" target="_blank" rel="noopener">SetupDiag - Windows Deployment</a>, which is a tool to collect and analyze the logs from Windows Update.</li>
+<li>Download SetupDiag tool from <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/deployment/upgrade/setupdiag">SetupDiag - Windows Deployment</a>, which is a tool to collect and analyze the logs from Windows Update.</li>
 <li>Excute the <code>SetupDiag.exe</code>, two files will be generated in the same path, which are <code>SetupDiagResults.log</code> and <code>Logs.zip</code>.</li>
 <li>In my case, <code>SetupDiagResults.log</code> said <em>SetupDiag was unable to match to any known failure signatures</em>, which works <em>properly</em> because the update just stuck at 61% without any error report.</li>
-<li>According to <a href="https://docs.microsoft.com/en-us/windows/deployment/upgrade/log-files" target="_blank" rel="noopener">Log files - Windows IT Pro - Windows Deployment</a>, the issue happened at Down-Level, and the log for it is setupact.log, which is collected into <code>Logs.zip</code>. And here are the last serval lines of my log:</li>
+<li>According to <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/deployment/upgrade/log-files">Log files - Windows IT Pro - Windows Deployment</a>, the issue happened at Down-Level, and the log for it is setupact.log, which is collected into <code>Logs.zip</code>. And here are the last serval lines of my log:</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">2020-06-13 19:59:05, Info                  MIG    AddDriverFiles: Processing driver: Mobile Intel(R) Processor Family I&#x2F;O PCI Express Root Port #9 - 9D18, INTEL, INTEL</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    AddInfAndCatalog: Adding catalog file: C:\WINDOWS\system32\catroot\&#123;f750e6c3-38ee-11d1-85e5-00c04fc295ee&#125;\oem120.cat</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    DumpDeviceDriversCallback: Adding file: C:\WINDOWS\system32\DRIVERS\pci.sys</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    AddDriverFiles: Processing device: 4d36e96c-e325-11ce-bfc1-08002be10318</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    AddDriverFiles: Processing driver: HP Dock Audio, Synaptics, Synaptics</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    AddInfAndCatalog: Adding catalog file: C:\WINDOWS\system32\catroot\&#123;f750e6c3-38ee-11d1-85e5-00c04fc295ee&#125;\oem26.cat</span><br><span class="line">2020-06-13 20:00:58, Info                  MOUPG  CInstallUI::ShowMessageBox: Showing MessageBox</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  CInstallUI::ConfirmCanceled: User cancel confirmed</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  CInstallUI::OnProgressChanged: Cancel is requested. Returning ERROR_REQUEST_ABORTED</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CInstallUI::OnProgressChanged(575): Result &#x3D; 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CSetupUIManager::OnProgressChanged(378): Result &#x3D; 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CSetupHost::OnProgressChanged(2306): Result &#x3D; 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CSetupManager::DlpManagerCallback(2063): Result &#x3D; 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  Cancel of current task requested...</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  Attempting to cancel current task...</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  MoSetupPlatform: Calling SetupPlatform::INewSystem::RequestCancelOperations...</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  Task cancel request returned: [0x0]</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  SendCallbackMessage: [0x7] -&gt; user callback returned 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CDlpTask::Cancel(984): Result &#x3D; 0xC1800108</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  SendCallbackMessage: [0x7] -&gt; Cancel request returned 0xC1800108</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">2020-06-13 19:59:05, Info                  MIG    AddDriverFiles: Processing driver: Mobile Intel(R) Processor Family I/O PCI Express Root Port #9 - 9D18, INTEL, INTEL</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    AddInfAndCatalog: Adding catalog file: C:\WINDOWS\system32\catroot\&#123;f750e6c3-38ee-11d1-85e5-00c04fc295ee&#125;\oem120.cat</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    DumpDeviceDriversCallback: Adding file: C:\WINDOWS\system32\DRIVERS\pci.sys</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    AddDriverFiles: Processing device: 4d36e96c-e325-11ce-bfc1-08002be10318</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    AddDriverFiles: Processing driver: HP Dock Audio, Synaptics, Synaptics</span><br><span class="line">2020-06-13 19:59:05, Info                  MIG    AddInfAndCatalog: Adding catalog file: C:\WINDOWS\system32\catroot\&#123;f750e6c3-38ee-11d1-85e5-00c04fc295ee&#125;\oem26.cat</span><br><span class="line">2020-06-13 20:00:58, Info                  MOUPG  CInstallUI::ShowMessageBox: Showing MessageBox</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  CInstallUI::ConfirmCanceled: User cancel confirmed</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  CInstallUI::OnProgressChanged: Cancel is requested. Returning ERROR_REQUEST_ABORTED</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CInstallUI::OnProgressChanged(575): Result = 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CSetupUIManager::OnProgressChanged(378): Result = 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CSetupHost::OnProgressChanged(2306): Result = 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CSetupManager::DlpManagerCallback(2063): Result = 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  Cancel of current task requested...</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  Attempting to cancel current task...</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  MoSetupPlatform: Calling SetupPlatform::INewSystem::RequestCancelOperations...</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  Task cancel request returned: [0x0]</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  SendCallbackMessage: [0x7] -&gt; user callback returned 0x800704D3</span><br><span class="line">2020-06-13 20:01:00, Error                 MOUPG  CDlpTask::Cancel(984): Result = 0xC1800108</span><br><span class="line">2020-06-13 20:01:00, Info                  MOUPG  SendCallbackMessage: [0x7] -&gt; Cancel request returned 0xC1800108</span><br></pre></td></tr></table></figure>
 
 <p>As the log shown above, the progress hangs at 19:59:05, which is <strong>Processing driver: HP Dock Audio, Synaptics, Synaptics</strong>. I do connect a HP Thunderbolt 3 dock to my ThinkPad X1 Tablet 3rd Gen. So I disconnected it, uninstalled the device and driver for it, reboot and the update works again as I expected.</p>
 <p>PS. I’ve tried update the system using Windows 10 2004 MSDN image, it stuck at 31% due to the same issue. The proper way to fix this is shown above.</p>
@@ -109,7 +108,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hencolle.com/2020/06/15/Windows%2010%202004%20update%20failure%20diagnosis/" data-id="ckbgls8wf000238nzdfby5e0h" class="article-share-link">Share</a>
+      <a data-url="https://hencolle.com/2020/06/15/Windows%2010%202004%20update%20failure%20diagnosis/" data-id="ckxxzom830001l0nz5gcu4leb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -117,6 +116,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2022/01/03/my_2021/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          My 2021
+        
+      </div>
+    </a>
   
   
     <a href="/2016/10/16/baidu_exporter/" id="article-nav-older" class="article-nav-link-wrap">
@@ -137,15 +145,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/" rel="tag">log</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/log/" style="font-size: 10px;">log</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
     </div>
   </div>
 
@@ -156,6 +178,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/01/03/my_2021/">My 2021</a>
+          </li>
         
           <li>
             <a href="/2020/06/15/Windows%2010%202004%20update%20failure%20diagnosis/">Windows 10 2004 update failure diagnosis (the proper way)</a>
@@ -177,7 +203,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 Explorare<br>
+      &copy; 2022 Explorare<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
